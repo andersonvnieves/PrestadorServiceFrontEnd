@@ -15,4 +15,6 @@ jobs:
     steps:
     - uses: actions/checkout@v2
     - name: Build the Docker image
-      run: docker build -t nieves/prestador-angular:$(date +%s) .
+      run: docker build -t nieves/prestador-angular:${{ github.sha }} .
+    - name: Pull the Docker image to Docker Hub
+      run: docker push nieves/prestador-angular:${{ github.sha }}
