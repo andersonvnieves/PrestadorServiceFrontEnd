@@ -1,0 +1,68 @@
+<div class=" container">
+    <div class="page-header">
+        <div class="left">
+            <h2>{{pageTitle}}</h2>
+        </div>
+        <div class="right">
+            
+        </div>    
+        <div class="clear">
+
+        </div>    
+    </div>
+
+    <form class="prestador-form" [formGroup]="prestadorForm" (submit)="onSubmit()">
+        <mat-card class="prestador-form-card">       
+            <mat-card-content>            
+                <mat-form-field appearance="fill" class="input-place">
+                    <mat-label>Nome Completo</mat-label>
+                    <input matInput formControlName="nomeCompleto"  />
+                </mat-form-field>
+
+                <mat-form-field appearance="fill" class="input-place">
+                    <mat-label>Data de Nascimento</mat-label>
+                    <input matInput formControlName="dataNascimento" [matDatepicker]="pickerdataNascimento" />
+                    <mat-datepicker-toggle matSuffix [for]="pickerdataNascimento"></mat-datepicker-toggle>
+                    <mat-datepicker #pickerdataNascimento></mat-datepicker>
+                  </mat-form-field>
+        
+                <mat-form-field appearance="fill" class="input-place">
+                    <mat-label>RG</mat-label>
+                    <input matInput formControlName="rg">
+                </mat-form-field>
+            
+                <mat-form-field  appearance="fill" class="input-place">
+                    <mat-label>CPF</mat-label>
+                    <input matInput formControlName="cpf" />
+                </mat-form-field>
+
+                <mat-form-field appearance="fill" class="input-place">
+                    <mat-label>CNH</mat-label>
+                    <input matInput formControlName="cnh" />
+                </mat-form-field>
+
+                <mat-form-field appearance="fill" class="input-place">
+                    <mat-label>Validade CNH</mat-label>
+                    <input matInput formControlName="validadeCNH" [matDatepicker]="pickervalidadeCNH" />
+                    <mat-datepicker-toggle matSuffix [for]="pickervalidadeCNH"></mat-datepicker-toggle>
+                    <mat-datepicker #pickervalidadeCNH></mat-datepicker>
+                  </mat-form-field>
+
+                <mat-form-field appearance="fill" class="input-place">
+                    <mat-label>E-mail</mat-label>
+                    <input matInput formControlName="email" />
+                </mat-form-field>
+            
+                <mat-form-field appearance="fill" class="input-place">
+                    <mat-label>Celular</mat-label>
+                    <input matInput formControlName="celular" />
+                </mat-form-field>              
+            </mat-card-content>
+            <mat-card-actions>
+                <button mat-button (click)="cancelarBtnClick($event)">Cancelar</button>
+                <button mat-raised-button color="primary" type="submit" >Salvar</button>
+            </mat-card-actions>         
+        </mat-card>
+    </form>    
+    
+</div>

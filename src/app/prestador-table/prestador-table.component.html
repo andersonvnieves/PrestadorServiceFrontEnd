@@ -1,0 +1,81 @@
+<table mat-table
+       [dataSource]="dataSource" multiTemplateDataRows
+       class="mat-elevation-z8">
+  <ng-container matColumnDef="{{column}}" *ngFor="let column of columnsToDisplay">
+    <th mat-header-cell *matHeaderCellDef> {{column}} </th>
+    <td mat-cell *matCellDef="let element"> {{element[column]}} </td>
+  </ng-container>
+
+  <!-- Expanded Content Column - The detail row is made up of this one column that spans across all columns -->
+  <ng-container matColumnDef="expandedDetail">
+    <td mat-cell *matCellDef="let element" [attr.colspan]="columnsToDisplay.length">
+      <div class="example-element-detail"
+           [@detailExpand]="element == expandedElement ? 'expanded' : 'collapsed'">
+           <mat-card class="prestador-card">
+            <mat-card-header>
+              <div mat-card-avatar>
+                <mat-icon>account_circle</mat-icon>
+              </div>
+              <mat-card-title>{{element.nomeCompleto}}</mat-card-title>
+              <mat-card-subtitle>Data de Nascimento: {{element.dataNascimento}}</mat-card-subtitle>              
+            </mat-card-header>
+            <mat-card-content>
+              <mat-list>
+                <div mat-subheader>Dados de Contato</div>
+                <mat-list-item >
+                  <div mat-line>E-mail: {{element.email}}</div>
+                  <div mat-line>Celular: {{element.celular}}</div>
+                </mat-list-item>
+                <div mat-subheader>Documentos Pessoais</div>
+                <mat-list-item >
+                  <div mat-line>RG: {{element.rg}}</div>
+                  <div mat-line>CPF: {{element.cpf}}</div>
+                  <div mat-line>CNH: {{element.cnh}}</div>
+                  <div mat-line>Data de Validade da CNH: {{element.validadeCNH}}</div>
+                </mat-list-item>
+
+                <div mat-subheader>Endereço</div>
+                <mat-list-item >
+                  <div mat-line *ngIf="element.endereco">{{element.endereco.logradouro}}, {{element.endereco.numero}} - {{element.endereco.bairro}}</div>
+                  <div mat-line *ngIf="element.endereco">{{element.endereco.cep}}</div>
+                  <div mat-line *ngIf="element.endereco">{{element.endereco.cidade}} - {{element.endereco.estado}}</div>
+                  <div mat-line *ngIf="element.endereco.complemento">Complemento: {{element.endereco.complemento}}</div>
+                  <div mat-line *ngIf="!element.endereco">Sem endereço cadastrado.</div>
+                  <div mat-line *ngIf="!element.endereco"><button mat-icon-button color="primary" aria-label="Adicionar Dados Bancários"><mat-icon>add</mat-icon></button></div>
+                  <div mat-line>
+                    <button mat-icon-button *ngIf="element.dadosBancarios" aria-label="Editar Dados Bancários"><mat-icon>edit</mat-icon></button>                
+                    <button mat-icon-button *ngIf="element.dadosBancarios" aria-label="Apagar Dados Bancários"><mat-icon>delete</mat-icon></button>
+                  </div>
+                </mat-list-item>
+                <mat-divider></mat-divider>
+                <div mat-subheader>Dados Bancários</div>                
+                <mat-list-item >
+                  <div mat-line *ngIf="element.dadosBancarios">Banco: {{element.dadosBancarios.banco}}</div>
+                  <div mat-line *ngIf="element.dadosBancarios">Agência: {{element.dadosBancarios.agencia}}</div>
+                  <div mat-line *ngIf="element.dadosBancarios">Conta Corrente: {{element.dadosBancarios.contaCorrente}}</div>
+                  <div mat-line *ngIf="!element.dadosBancarios">Sem dadaos bancários cadastrados.</div>
+                  <div mat-line *ngIf="!element.dadosBancarios"><button mat-icon-button color="primary" aria-label="Adicionar Dados Bancários"><mat-icon>add</mat-icon></button></div>
+                  <div mat-line>
+                    <button mat-icon-button *ngIf="element.dadosBancarios" aria-label="Editar Dados Bancários"><mat-icon>edit</mat-icon></button>                
+                    <button mat-icon-button *ngIf="element.dadosBancarios" aria-label="Apagar Dados Bancários"><mat-icon>delete</mat-icon></button>
+                  </div>
+                </mat-list-item>
+              </mat-list>
+            </mat-card-content>
+            <mat-card-actions>
+              <button mat-stroked-button>Editar Prestador</button>
+            </mat-card-actions>
+          </mat-card>
+        
+      </div>
+    </td>
+  </ng-container>
+
+  <tr mat-header-row *matHeaderRowDef="columnsToDisplay"></tr>
+  <tr mat-row *matRowDef="let element; columns: columnsToDisplay;"
+      class="example-element-row"
+      [class.example-expanded-row]="expandedElement === element"
+      (click)="expandedElement = expandedElement === element ? null : element">
+  </tr>
+  <tr mat-row *matRowDef="let row; columns: ['expandedDetail']" class="example-detail-row"></tr>
+</table>

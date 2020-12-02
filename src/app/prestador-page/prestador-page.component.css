@@ -1,0 +1,15 @@
+.container {
+    margin: auto;
+    max-width: 80%;
+}
+
+.page-header {
+    margin-top: 3rem;
+}
+.left {
+    float: left;
+}
+
+.right{
+    float: right;
+}
