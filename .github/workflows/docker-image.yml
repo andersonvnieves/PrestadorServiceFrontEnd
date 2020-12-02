@@ -13,8 +13,15 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
-    - uses: actions/checkout@v2
-    - name: Build the Docker image
-      run: docker build -t nieves/prestador-angular:${{ github.sha }} .
-    - name: Pull the Docker image to Docker Hub
-      run: docker push nieves/prestador-angular:${{ github.sha }}
+      - name: Login to DockerHub
+        uses: docker/login-action@v1
+        with:
+          username: ${{ secrets.DOCKERHUB_USERNAME }}
+          password: ${{ secrets.DOCKERHUB_TOKEN }}
+          
+      - uses: actions/checkout@v2
+      - name: Build the Docker image
+        run: docker build -t nieves/prestador-angular:${{ github.sha }} .
+
+      - name: Push the Docker image
+        run: docker push nieves/prestador-angular:${{ github.sha }}
