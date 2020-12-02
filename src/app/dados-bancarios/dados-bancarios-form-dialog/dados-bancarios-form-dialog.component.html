@@ -1,1 +1,25 @@
-<p>dados-bancarios-form-dialog works!</p>
+<h2 mat-dialog-title>{{dialogTitle}}</h2>
+
+<form class="dadosBancarios-form" [formGroup]="dadosBancariosForm" (submit)="onSubmit()">
+    <mat-dialog-content class="mat-typography">
+        <mat-form-field appearance="fill" class="input-place-95">
+            <mat-label>Banco</mat-label>
+            <input matInput formControlName="banco"  />
+        </mat-form-field> 
+    
+        <mat-form-field appearance="fill" class="input-place30">
+            <mat-label>Agência</mat-label>
+            <input matInput formControlName="agencia">
+        </mat-form-field>
+    
+        <mat-form-field  appearance="fill" class="input-place-60">
+            <mat-label>Conta Corrente</mat-label>
+            <input matInput formControlName="contaCorrente" />
+        </mat-form-field>  
+      
+    </mat-dialog-content>
+    <mat-dialog-actions align="end">
+        <button mat-button>Cancelar</button>
+        <button mat-raised-button color="primary" type="submit" >Salvar</button>
+    </mat-dialog-actions>    
+</form> 

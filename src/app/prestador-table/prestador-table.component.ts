@@ -2,6 +2,9 @@ import { Component, OnInit } from '@angular/core';
 import {animate, state, style, transition, trigger} from '@angular/animations';
 import { PrestadorApiService } from '../prestador-api.service';
 import { Prestador } from 'src/model/Prestador';
+import { MatDialog } from '@angular/material/dialog';
+import { DadosBancariosFormDialogComponent } from '../dados-bancarios/dados-bancarios-form-dialog/dados-bancarios-form-dialog.component';
+import { EnderecoFormDialogComponent } from '../endereco/endereco-form-dialog/endereco-form-dialog.component';
 
 @Component({
   selector: 'app-prestador-table',
@@ -21,11 +24,22 @@ export class PrestadorTableComponent implements OnInit {
   columnsToDisplay = ['nomeCompleto', 'email', 'celular'];
   expandedElement: Prestador | null | undefined;
 
-  constructor(private prestadorApiService: PrestadorApiService) { }
+  constructor(private prestadorApiService: PrestadorApiService, public dialog: MatDialog
+    ) { }
 
   ngOnInit(): void {
     this.prestadorApiService.getPrestadorList().subscribe((data) => { this.dataSource = data; });
     
+  }
+
+  openDadosBancariosFormDialog() {
+    const dialogRef = this.dialog.open(DadosBancariosFormDialogComponent);
+    dialogRef.afterClosed().subscribe(result => { });
+  }
+
+  openEnderecoFormDialog() {
+    const dialogRef = this.dialog.open(EnderecoFormDialogComponent);
+    dialogRef.afterClosed().subscribe(result => { });
   }
 
 }

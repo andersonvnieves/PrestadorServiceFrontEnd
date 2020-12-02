@@ -41,9 +41,9 @@
                   <div mat-line *ngIf="element.endereco">{{element.endereco.cidade}} - {{element.endereco.estado}}</div>
                   <div mat-line *ngIf="element.endereco.complemento">Complemento: {{element.endereco.complemento}}</div>
                   <div mat-line *ngIf="!element.endereco">Sem endereço cadastrado.</div>
-                  <div mat-line *ngIf="!element.endereco"><button mat-icon-button color="primary" aria-label="Adicionar Dados Bancários"><mat-icon>add</mat-icon></button></div>
+                  <div mat-line *ngIf="!element.endereco"><button mat-icon-button color="primary" aria-label="Adicionar Dados Bancários" (click)="openEnderecoFormDialog()"><mat-icon>add</mat-icon></button></div>
                   <div mat-line>
-                    <button mat-icon-button *ngIf="element.dadosBancarios" aria-label="Editar Dados Bancários"><mat-icon>edit</mat-icon></button>                
+                    <button mat-icon-button *ngIf="element.dadosBancarios" aria-label="Editar Dados Bancários" (click)="openEnderecoFormDialog()"><mat-icon>edit</mat-icon></button>                
                     <button mat-icon-button *ngIf="element.dadosBancarios" aria-label="Apagar Dados Bancários"><mat-icon>delete</mat-icon></button>
                   </div>
                 </mat-list-item>
@@ -54,9 +54,9 @@
                   <div mat-line *ngIf="element.dadosBancarios">Agência: {{element.dadosBancarios.agencia}}</div>
                   <div mat-line *ngIf="element.dadosBancarios">Conta Corrente: {{element.dadosBancarios.contaCorrente}}</div>
                   <div mat-line *ngIf="!element.dadosBancarios">Sem dadaos bancários cadastrados.</div>
-                  <div mat-line *ngIf="!element.dadosBancarios"><button mat-icon-button color="primary" aria-label="Adicionar Dados Bancários"><mat-icon>add</mat-icon></button></div>
+                  <div mat-line *ngIf="!element.dadosBancarios"><button mat-icon-button color="primary" aria-label="Adicionar Dados Bancários" (click)="openDadosBancariosFormDialog()"><mat-icon>add</mat-icon></button></div>
                   <div mat-line>
-                    <button mat-icon-button *ngIf="element.dadosBancarios" aria-label="Editar Dados Bancários"><mat-icon>edit</mat-icon></button>                
+                    <button mat-icon-button *ngIf="element.dadosBancarios" aria-label="Editar Dados Bancários" (click)="openDadosBancariosFormDialog()"><mat-icon>edit</mat-icon></button>                
                     <button mat-icon-button *ngIf="element.dadosBancarios" aria-label="Apagar Dados Bancários"><mat-icon>delete</mat-icon></button>
                   </div>
                 </mat-list-item>
