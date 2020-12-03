@@ -20,7 +20,7 @@ import { EnderecoFormDialogComponent } from '../endereco/endereco-form-dialog/en
 })
 export class PrestadorTableComponent implements OnInit {
 
-  dataSource = ELEMENT_DATA;
+  dataSource: any;
   columnsToDisplay = ['nomeCompleto', 'email', 'celular'];
   expandedElement: Prestador | null | undefined;
 
@@ -43,62 +43,3 @@ export class PrestadorTableComponent implements OnInit {
   }
 
 }
-
-
-
-const ELEMENT_DATA: Prestador[] = [
-  {
-    prestadorId: 1,
-    nomeCompleto: "Prestador Teste",
-    dataNascimento: new Date("1970-11-29T00:00:00"),
-    rg: "1155588899",
-    cpf: "55588899966",
-    cnh: "4585475874",
-    validadeCNH: new Date("1970-11-29T00:00:00"),
-    email: "user@example.com",
-    celular: "11985257414",
-    endereco: {
-      enderecoId: 0,
-      logradouro: "Avenida dos Autonomistas",
-      numero: "455",
-      bairro: "Centro",
-      cep: "09090-190",
-      estado: "SP",
-      cidade: "Osasco",
-      complemento: "string"
-    },
-    dadosBancarios: {
-      dadosBancariosId: 0,
-      banco: "Next",
-      agencia: "8675",
-      contaCorrente: "452588-5"
-    }
-  },
-  {
-    prestadorId: 2,
-    nomeCompleto: "Imprestador",
-    dataNascimento: new Date("1970-11-29T00:00:00"),
-    rg: "1155588899",
-    cpf: "55588899966",
-    cnh: "4585475874",
-    validadeCNH: new Date("1970-11-29T00:00:00"),
-    email: "user@example.com",
-    celular: "11985257414",
-    endereco: {
-      enderecoId: 0,
-      logradouro: "Avenida dos Autonomistas",
-      numero: "455",
-      bairro: "Centro",
-      cep: "09090-190",
-      estado: "SP",
-      cidade: "Osasco",
-      complemento: ""
-    },
-    dadosBancarios: {
-      dadosBancariosId: 0,
-      banco: "Next",
-      agencia: "8675",
-      contaCorrente: "452588-5"
-    }
-  }
-];
