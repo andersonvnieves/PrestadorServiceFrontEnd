@@ -1,5 +1,5 @@
 export interface Endereco {
-  enderecoId: 0,
+  enderecoId: number,
   logradouro: string,
   numero: string,
   bairro: string,

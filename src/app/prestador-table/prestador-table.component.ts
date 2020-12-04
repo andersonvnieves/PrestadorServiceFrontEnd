@@ -32,13 +32,13 @@ export class PrestadorTableComponent implements OnInit {
     
   }
 
-  openDadosBancariosFormDialog() {
-    const dialogRef = this.dialog.open(DadosBancariosFormDialogComponent);
+  openDadosBancariosFormDialog(isCreate: boolean, prestadorId : number, dadosBancariosId: number = 0) {
+    const dialogRef = this.dialog.open(DadosBancariosFormDialogComponent, { data: {isCreate: isCreate, dadosBancariosId: dadosBancariosId, prestadorId: prestadorId} });
     dialogRef.afterClosed().subscribe(result => { });
   }
 
-  openEnderecoFormDialog() {
-    const dialogRef = this.dialog.open(EnderecoFormDialogComponent);
+  openEnderecoFormDialog(isCreate: boolean, prestadorId : number, enderecoId: number = 0) {
+    const dialogRef = this.dialog.open(EnderecoFormDialogComponent, { data: {isCreate: isCreate, enderecoId: enderecoId, prestadorId: prestadorId} });
     dialogRef.afterClosed().subscribe(result => { });
   }
 
