@@ -14,11 +14,11 @@ export class EnderecoApiService {
     return this.http.get<Endereco>(`${environment.prestadorApiUrl}/api/Endereco?id=${id}`);
   }
 
-  postPrestador(data: Endereco, prestadorId: number) {
+  postEndereco(data: Endereco, prestadorId: number) {
     return this.http.post<Endereco>(`${environment.prestadorApiUrl}/api/Endereco/${prestadorId}`, data);
   }
 
-  putPrestador(data: Endereco) {
+  putEndereco(data: Endereco) {
     return this.http.put<Endereco>(`${environment.prestadorApiUrl}/api/Endereco`, data);
   }
 }

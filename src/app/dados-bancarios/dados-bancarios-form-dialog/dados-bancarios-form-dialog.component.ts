@@ -47,7 +47,7 @@ export class DadosBancariosFormDialogComponent implements OnInit {
           contaCorrente: result.contaCorrente
         })        
       }, error => {
-        this.snackBar.open("Erro ao carregar Endereço.", "OK", {
+        this.snackBar.open("Erro ao carregar Dados Bancários.", "OK", {
           duration: 2000,
         })
       }); 
@@ -62,7 +62,7 @@ export class DadosBancariosFormDialogComponent implements OnInit {
           this.router.navigate(['TodosPrestadores']);
           this.dialogRef.close();
         }, error => {
-          this.snackBar.open("Erro ao salvar Endereço.", "OK", {
+          this.snackBar.open("Erro ao salvar Dados Bancários.", "OK", {
             duration: 2000,
           })
         });      
@@ -72,7 +72,7 @@ export class DadosBancariosFormDialogComponent implements OnInit {
           this.router.navigate(['TodosPrestadores']);
           this.dialogRef.close();
         }, error => {
-          this.snackBar.open("Erro ao atualizar Endereço.", "OK", {
+          this.snackBar.open("Erro ao atualizar Dados Bancários.", "OK", {
             duration: 2000,
           })
         });

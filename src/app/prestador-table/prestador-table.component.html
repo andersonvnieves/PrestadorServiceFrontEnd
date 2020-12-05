@@ -41,7 +41,7 @@
                   <div mat-line *ngIf="element.endereco">{{element.endereco.cidade}} - {{element.endereco.estado}}</div>
                   <div mat-line *ngIf="element.endereco">Complemento: {{element.endereco.complemento}}</div>
                   <div mat-line *ngIf="!element.endereco">Sem endereço cadastrado.</div>
-                  <div mat-line *ngIf="!element.endereco"><button mat-icon-button color="primary" aria-label="Adicionar Dados Bancários" (click)="openEnderecoFormDialog(true, element.prestadorId)"><mat-icon>add</mat-icon></button></div>
+                  <div mat-line *ngIf="!element.endereco"><button mat-icon-button color="primary" aria-label="Adicionar Endereço" (click)="openEnderecoFormDialog(true, element.prestadorId)"><mat-icon>add</mat-icon></button></div>
                   <div mat-line>
                     <button mat-icon-button *ngIf="element.dadosBancarios" aria-label="Editar Dados Bancários" (click)="openEnderecoFormDialog(false, element.prestadorId, element.endereco.enderecoId)"><mat-icon>edit</mat-icon></button>                
                     <button mat-icon-button *ngIf="element.dadosBancarios" aria-label="Apagar Dados Bancários"><mat-icon>delete</mat-icon></button>
