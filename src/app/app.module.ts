@@ -28,6 +28,7 @@ import { EnderecoFormDialogComponent } from './endereco/endereco-form-dialog/end
 import { EnderecoExcluirDialogComponent } from './endereco/endereco-excluir-dialog/endereco-excluir-dialog.component';
 import { DadosBancariosFormDialogComponent } from './dados-bancarios/dados-bancarios-form-dialog/dados-bancarios-form-dialog.component';
 import { DadosBancariosExcluirDialogComponent } from './dados-bancarios/dados-bancarios-excluir-dialog/dados-bancarios-excluir-dialog.component';
+import { PrestadorExluirDialogComponent } from './prestador-table/prestador-exluir-dialog/prestador-exluir-dialog.component';
 
 @NgModule({
   declarations: [
@@ -38,7 +39,8 @@ import { DadosBancariosExcluirDialogComponent } from './dados-bancarios/dados-ba
     EnderecoFormDialogComponent,
     EnderecoExcluirDialogComponent,
     DadosBancariosFormDialogComponent,
-    DadosBancariosExcluirDialogComponent
+    DadosBancariosExcluirDialogComponent,
+    PrestadorExluirDialogComponent
   ],
   imports: [
     BrowserModule,

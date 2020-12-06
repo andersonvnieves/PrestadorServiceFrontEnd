@@ -21,4 +21,8 @@ export class EnderecoApiService {
   putEndereco(data: Endereco) {
     return this.http.put<Endereco>(`${environment.prestadorApiUrl}/api/Endereco`, data);
   }
+
+  deleteEndereco(id: number) {
+    return this.http.delete<string>(`${environment.prestadorApiUrl}/api/Endereco?id=${id}`);
+  }
 }

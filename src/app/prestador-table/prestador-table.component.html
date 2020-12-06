@@ -44,7 +44,7 @@
                   <div mat-line *ngIf="!element.endereco"><button mat-icon-button color="primary" aria-label="Adicionar Endereço" (click)="openEnderecoFormDialog(true, element.prestadorId)"><mat-icon>add</mat-icon></button></div>
                   <div mat-line>
                     <button mat-icon-button *ngIf="element.dadosBancarios" aria-label="Editar Dados Bancários" (click)="openEnderecoFormDialog(false, element.prestadorId, element.endereco.enderecoId)"><mat-icon>edit</mat-icon></button>                
-                    <button mat-icon-button *ngIf="element.dadosBancarios" aria-label="Apagar Dados Bancários"><mat-icon>delete</mat-icon></button>
+                    <button mat-icon-button *ngIf="element.dadosBancarios" aria-label="Apagar Dados Bancários" (click)="openEnderecoExcluirDialog(element.endereco.enderecoId)"><mat-icon>delete</mat-icon></button>
                   </div>
                 </mat-list-item>
                 <mat-divider></mat-divider>
@@ -57,13 +57,14 @@
                   <div mat-line *ngIf="!element.dadosBancarios"><button mat-icon-button color="primary" aria-label="Adicionar Dados Bancários" (click)="openDadosBancariosFormDialog(true, element.prestadorId)"><mat-icon>add</mat-icon></button></div>
                   <div mat-line>
                     <button mat-icon-button *ngIf="element.dadosBancarios" aria-label="Editar Dados Bancários" (click)="openDadosBancariosFormDialog(false, element.prestadorId, element.dadosBancarios.dadosBancariosId)"><mat-icon>edit</mat-icon></button>                
-                    <button mat-icon-button *ngIf="element.dadosBancarios" aria-label="Apagar Dados Bancários"><mat-icon>delete</mat-icon></button>
+                    <button mat-icon-button *ngIf="element.dadosBancarios" aria-label="Apagar Dados Bancários" (click)="openDadosBancariosExcluirDialog(element.dadosBancarios.dadosBancariosId)"><mat-icon>delete</mat-icon></button>
                   </div>
                 </mat-list-item>
               </mat-list>
             </mat-card-content>
             <mat-card-actions>
-              <button mat-stroked-button>Editar Prestador</button>
+              <button mat-stroked-button (click)="openPrestadorFormDialog(element.prestadorId)">Editar Prestador</button>
+              <button mat-stroked-button (click)="openPrestadorExcluirDialog(element.prestadorId)">Excluír Prestador</button>
             </mat-card-actions>
           </mat-card>
         

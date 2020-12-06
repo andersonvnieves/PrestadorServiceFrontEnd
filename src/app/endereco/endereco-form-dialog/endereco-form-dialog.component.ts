@@ -27,7 +27,7 @@ export class EnderecoFormDialogComponent implements OnInit {
     private enderecoApiService: EnderecoApiService
     ) { 
       this.enderecoForm = this.formBuilder.group({
-        enderecoId: ['', [Validators.required]],
+        enderecoId: [0],
         logradouro: ['', [Validators.required]],
         numero: ['', [Validators.required]],
         bairro: ['', [Validators.required]],
